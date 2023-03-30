@@ -1,0 +1,61 @@
+#include <stdbool.h>
+#include <assert.h>
+
+
+#include "fixstring.h"
+
+unsigned int fstring_length(fixstring s) {
+   unsigned int contador = 0;
+   int i = 0;
+
+   while (s[i] != '\0') {
+       contador = contador + 1;
+       i = i + 1;
+   }
+
+   return contador;
+}
+
+
+bool fstring_eq(fixstring s1, fixstring s2) {
+    bool sonIguales = true;
+
+    for (int i = 0; i < FIXSTRING_MAX; ++i) {
+        if (s1[i] != s2[i]) {
+            sonIguales = false;
+        }
+    }
+
+    return sonIguales;
+}
+
+
+bool fstring_less_eq(fixstring s1, fixstring s2) {
+    bool esMenor = true;
+    int i = 0;
+
+
+    while (i < FIXSTRING_MAX) {
+        if (s1[i] == s2[i]) {
+            esMenor = esMenor && true;
+        } else {
+            if (s1[i] < s2[i]) {
+                esMenor = true;
+            } else {
+                esMenor = false;
+            }
+            break;
+        }
+        
+        i = i + 1;
+    }
+
+    return esMenor;
+}
+
+
+
+
+
+
+
